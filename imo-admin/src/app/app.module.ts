@@ -6,6 +6,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {PublicModule} from "./public/public.module";
 import {SecureModule} from "./secure/secure.module";
 import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {RouterModule} from "@angular/router";
     BrowserModule,
     AppRoutingModule,
     PublicModule,
-    SecureModule
+    SecureModule,
+    HttpClientModule
   ],
   providers: [],
   exports: [],
