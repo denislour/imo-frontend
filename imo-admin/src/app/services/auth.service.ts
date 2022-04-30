@@ -11,9 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   user(): Observable<User> {
-    return this.http.get<User>(`${environment.api}/user`, {
-      withCredentials: true,
-    });
+    return this.http.get<User>(`${environment.api}/user`);
   }
 
   register(data: any): Observable<User> {
@@ -21,18 +19,10 @@ export class AuthService {
   }
 
   login(data: any): Observable<any> {
-    return this.http.post(`${environment.api}/login`, data, {
-      withCredentials: true,
-    });
+    return this.http.post(`${environment.api}/login`, data);
   }
 
   logout(): Observable<any> {
-    return this.http.post(
-      `${environment.api}/logout`,
-      {},
-      {
-        withCredentials: true,
-      }
-    );
+    return this.http.post(`${environment.api}/logout`, {});
   }
 }

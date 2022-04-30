@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PublicModule } from './public/public.module';
 import { SecureModule } from './secure/secure.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CredencialInterceptor } from './interceptors/credencial.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,13 @@ import { HttpClientModule } from '@angular/common/http';
     SecureModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CredencialInterceptor,
+      multi: true,
+    },
+  ],
   exports: [],
   bootstrap: [AppComponent],
 })
