@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { SecureComponent } from './secure.component';
 import { MenuComponent } from './menu/menu.component';
 import { NavComponent } from './nav/nav.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [SecureComponent, MenuComponent, NavComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
 })
 export class SecureModule {}

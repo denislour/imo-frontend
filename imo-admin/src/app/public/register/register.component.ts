@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,8 +15,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -29,9 +30,8 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.form.getRawValue());
-    this.http
-      .post(`${environment.api}/register`, this.form.getRawValue())
+    this.authService
+      .register(this.form.getRawValue())
       .subscribe(() => this.router.navigate(['/login']));
   }
 }
