@@ -12,8 +12,9 @@ const routes: Routes = [
     path: '',
     component: SecureComponent,
     children: [
+      { path: '', pathMatch: 'full', redirectTo: 'user' },
       { path: 'profile', component: ProfileComponent },
-      { path: 'users', component: UserComponent },
+      { path: 'user', component: UserComponent },
     ],
   },
   {
