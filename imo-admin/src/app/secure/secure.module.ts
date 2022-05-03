@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserComponent } from './user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,12 @@ import { MatTableModule } from '@angular/material/table';
     ProfileComponent,
     UserComponent,
   ],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, MatTableModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+  ],
 })
 export class SecureModule {}
