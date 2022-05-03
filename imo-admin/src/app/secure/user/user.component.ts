@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/interfaces/user';
+import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,11 +8,12 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  users: User[] = [];
+  columns = ['ID', 'name', 'email', 'actions'];
+  dataSource = new MatTableDataSource();
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.userService.all().subscribe((users) => (this.users = users));
+    this.userService.all().subscribe((users) => (this.dataSource.data = users));
   }
 }
